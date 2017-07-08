@@ -1,0 +1,10 @@
+npm i -g npm-check-updates
+npm-check-updates -u
+npm install
+
+to check updates for npm packages
+
+
+use this command to install gulp to run the project
+
+sudo npm install gulp-cli -g
