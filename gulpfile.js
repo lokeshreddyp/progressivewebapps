@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 
 // change enronment to production so that css and js
 // files will be compressed using uglift method and cleancss
-var src = './compressed',
+var src = './uncompressed',
     dest = './app'
     environment = 'production';
 
