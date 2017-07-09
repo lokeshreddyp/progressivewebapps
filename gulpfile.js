@@ -10,11 +10,11 @@ var gulp = require('gulp'),
     path = require('path'),
     swPrecache = require('sw-precache');
 
-// change enronment to production so that css and js 
+// change enronment to production so that css and js
 // files will be compressed using uglift method and cleancss
 var src = './compressed',
     dest = './app'
-    environment = 'development';
+    environment = 'production';
 
 gulp.task('js', function() {
   return gulp.src(src + '/js/app.js')
