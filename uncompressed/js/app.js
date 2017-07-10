@@ -11,8 +11,38 @@ $(function() {
 //by default bootstrap nav classes has an offset of 50 px tall
   var topoffset = 50;
 
+//parsing json and getting the images using handlebars.js
+$.getJSON('/data/pets.json', function(data) {
+  //target into slideshow-template id
+var slideshowTemplate = $('#slideshow-template').html();
+//compile slideshowScript
+var slideshowScript = Handlebars.compile(slideshowTemplate);
+//it will load for one second before displaying images
+  $('.loader').fadeOut(1000);
+//append all images to slideshow-content id in index.html page
+  $('#slideshow-content').append(slideshowScript(data));
+
+
+//replacing the image to fullscreen instead of half screen
+
+$('#slideshow .item img').each(function() {
+var imgSrc = $(this).attr('src');
+$(this).parent().css({'background-image' : 'url(' + imgSrc +')'});
+$(this).remove();
+});
+
+
+//it will unpause carousel if we put cursor on screen
+
+$('.carousel').carousel({
+  pause: false
+});
+
+
+});
+
   //used for loader ,css code has written for this class
-  $('.loader').fadeOut(5000);
+
 
 
 //to keep the navbar on top eventhough we scroll down
@@ -25,9 +55,7 @@ $('.navbar-fixed-top').on('activate.bs.scrollspy',function() {
   else {
     $('header nav').removeClass('inbody');
   }
-
 });
-
 
 //Use smooth scrolling when clicking on navigation
  $('.navbar a').click(function() {
@@ -44,8 +72,6 @@ $('.navbar-fixed-top').on('activate.bs.scrollspy',function() {
      } //target.length
    } //click function
  }); //smooth scrolling
-
-
 
 //activate scrollspy
 $('body').scrollspy({
