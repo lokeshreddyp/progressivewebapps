@@ -8,13 +8,13 @@
   <title>Progressive Web Apps</title>
   <link rel="stylesheet" href="/css/app.css">
 
-  <style>
+  <!--<style>
     .page,
     #slideshow {
       height: 100vh;
       background: gray;
     }
-  </style>
+  </style>-->
 </head>
 
 <body>
@@ -55,10 +55,10 @@
           </button>
           <a class="navbar-brand" href="#slideshow"><h1>Wisdom <span class="subhead"> Pet Medicine</span></h1></a>
 
-    <!-- navbar-header -->
+          <!-- navbar-header -->
         </div>
 
-<!-- collapse navbar list -->
+        <!-- collapse navbar list -->
         <div class="collapse navbar-collapse" id="collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active">
@@ -76,18 +76,19 @@
           </ul>
           <!-- collapse navbar list -->
         </div>
-          <!-- container -->
+        <!-- container -->
       </div>
 
-<!-- navbar -->
+      <!-- navbar -->
     </nav>
 
+    <!-- slideshow template -->
     <script id="slideshow-template" type="text/x-handlebars-template">
 
-<!-- carousel-fade -->
+      <!-- carousel-fade -->
       <div class="carousel fade" data-ride="carousel" id="slideshow">
 
-<!-- carousel-inner -->
+        <!-- carousel-inner -->
         <div class="carousel-inner">
 
           {{#each slideshow}} {{#if @first}}
@@ -112,7 +113,7 @@
 
     </script>
 
-<!-- images will be targeted from app.js after appending them to slideshow-content -->
+    <!-- images will be targeted from app.js after appending them to slideshow-content -->
     <div id="slideshow-content"></div>
 
     <!-- header -->
@@ -121,13 +122,27 @@
   <main>
     <!-- adoption -->
     <div class="page" id="adoption">
+      <!-- container -->
       <div class="container">
         <h2 class="page-headline">Adoptions</h2>
         <p> This is adoptions info.</p>
-  <!-- container -->
+
+        <!-- adoption template -->
+        <script id="adoption-template" type="text/x-handlebars-template">
+          {{#each adoption}}
+          <div class="col-md-2 col-sm-3 col-xs-4">
+            <img class="img-circle" src="images/pets/{{filename}}_tn.jpg" alt="{{pet}} Photo">
+          </div>
+          {{/each}}
+        </script>
+
+<!-- adoption-content -->
+        <div class="adoption-content"></div>
+<!-- container -->
       </div>
-        <!-- adoption -->
+      <!-- adoption -->
     </div>
+
     <!-- page-adoption -->
     <div class="page" id="appointments">
       <div class="container">

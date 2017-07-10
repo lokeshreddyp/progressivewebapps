@@ -17,14 +17,24 @@ $.getJSON('/data/pets.json', function(data) {
 var slideshowTemplate = $('#slideshow-template').html();
 //compile slideshowScript
 var slideshowScript = Handlebars.compile(slideshowTemplate);
+
+//target into adoption-template id
+var adoptionTemplate = $('#adoption-template').html();
+//compile adoptionScript
+var adoptionScript = Handlebars.compile(adoptionTemplate);
+
 //it will load for one second before displaying images
   $('.loader').fadeOut(1000);
+
 //append all images to slideshow-content id in index.html page
   $('#slideshow-content').append(slideshowScript(data));
 
+  //append all images to adoption-content id in index.html page
+    $('.adoption-content').append(adoptionScript(data));
 
-//replacing the image to fullscreen instead of half screen
 
+
+//replacing the image to fullscreen instead of half screen by using background-image
 $('#slideshow .item img').each(function() {
 var imgSrc = $(this).attr('src');
 $(this).parent().css({'background-image' : 'url(' + imgSrc +')'});
@@ -33,18 +43,12 @@ $(this).remove();
 
 
 //it will unpause carousel if we put cursor on screen
-
 $('.carousel').carousel({
   pause: false
 });
-
-
 });
 
   //used for loader ,css code has written for this class
-
-
-
 //to keep the navbar on top eventhough we scroll down
 $('.navbar-fixed-top').on('activate.bs.scrollspy',function() {
   //to get the name in nav bar eg home,adoption,appointments which are in list of active class from that //we get href of that element
