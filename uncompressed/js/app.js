@@ -48,6 +48,19 @@ $('.carousel').carousel({
 });
 });
 
+//injecting to openpetmodal class
+$(document).on('click', '.openpetmodal' , function(){
+//getting the data adoption template and injecting to modal classes like modal-petname,modal-petbreed etc
+  $('.modal-petname').html($(this).data('petname'));
+  $('.modal-petbreed').html($(this).data('petbreed'));
+  $('.modal-petowner').html($(this).data('petowner'));
+  $('.modal-petinfo').html($(this).data('petinfo'));
+
+  $('.modal-petimage').attr('src','images/pets/'+$(this).data('petimage') + '.jpg');
+
+  $('.modal-petimage').attr('alt',$(this).data('petimage') + 'photo');
+});
+
   //used for loader ,css code has written for this class
 //to keep the navbar on top eventhough we scroll down
 $('.navbar-fixed-top').on('activate.bs.scrollspy',function() {
