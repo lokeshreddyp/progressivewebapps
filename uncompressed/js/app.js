@@ -23,6 +23,12 @@ var adoptionTemplate = $('#adoption-template').html();
 //compile adoptionScript
 var adoptionScript = Handlebars.compile(adoptionTemplate);
 
+
+//target into appointments-template and get the html content and store in variable
+var appointmentsTemplate = $('#appointments-template').html();
+//compile appointmentsScript
+var appointmentsScript = Handlebars.compile(appointmentsTemplate);
+
 //it will load for one second before displaying images
   $('.loader').fadeOut(1000);
 
@@ -31,6 +37,9 @@ var adoptionScript = Handlebars.compile(adoptionTemplate);
 
   //append all images to adoption-content id in index.html page
     $('.adoption-content').append(adoptionScript(data));
+
+    //append all images to adoption-content id in index.html page
+      $('#appointments-content').append(appointmentsScript(data));
 
 
 

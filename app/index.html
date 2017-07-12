@@ -143,7 +143,7 @@
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close" role="document"><span aria-hidden="true">&times;</span>
   </button>
-                  <h2 class="modal-tittle modal-petname">{{pet}}</h2>
+                  <h2 class="modal-tittle modal-petnfame">{{pet}}</h2>
                   <div class="modal-petbreed">
                     {{breed}}
                     <!-- modal-petbreed -->
@@ -179,6 +179,43 @@
       <div class="container">
         <h2 class="page-headline">Appointments</h2>
         <p>This appointments info</p>
+
+<!-- appointments template -->
+
+        <script id="appointments-template" type="text/x-handlebars-template">
+
+{{#each appointments}}
+
+
+<div class="appointment media openpetmodal" data-toggle="modal" data-target="#wisdompetmodel" data-petname="{{pet}}" data-petbreed="{{breed}}" data-petowner="{{owner}}" data-petinfo="{{reason}}" data-petimage="{{filename}}">
+
+<div class="media-left media-top">
+  <img class="media-object appointment-img img-rounded" src="images/pets/{{filename}}_tn.jpg" alt="{{pet}} photo" />
+</div>
+
+<div class="media-body">
+  <h3 class="media-heading appointments-heading"> {{pet}} ,<span class="appointment-breed">{{breed}}</span> </h3>
+  <div class="appointment-owner">
+    <span class="appointment-owner-title">Owner: </span>
+
+    <span class="appointment-owner-name">{{owner}}</span>
+  </div>
+  </div>
+<div class="appointment-reason">
+  {{reason}}
+</div>
+
+</div>
+
+</div>
+
+{{/each}}
+        </script>
+
+<div id="appointments-content">
+
+</div>
+
       </div>
       <!-- container -->
     </div>
