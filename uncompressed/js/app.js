@@ -11,6 +11,23 @@ $(function() {
 //by default bootstrap nav classes has an offset of 50 px tall
   var topoffset = 50;
 
+
+  //registering service worker
+  //navigator is an object that had features of the current browser
+  //we need to install service workers in main root folder
+  if('serviceWorker' in navigator) {
+
+    navigator.serviceWorker
+    .register('./service-worker.js')
+    .then(function() {
+      console.log('service worker active');
+    })
+
+  }
+
+
+
+
 //parsing json and getting the images using handlebars.js
 $.getJSON('/data/pets.json', function(data) {
   //target into slideshow-template id
@@ -103,5 +120,9 @@ $('.navbar-fixed-top').on('activate.bs.scrollspy',function() {
 $('body').scrollspy({
   target: 'header .navbar',
   offset: topoffset
+
+
+
+
 });
 });
